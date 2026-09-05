@@ -1,0 +1,6 @@
+referenceId,amount,date,description
+TXN-9001,12400,2026-09-01,Order #1001
+TXN-9002,3250,2026-09-01,Order #1002
+TXN-9003,8990,2026-09-02,Order #1003
+TXN-9004,21000,2026-09-02,Order #1004 refund issued
+TXN-9006,4120,2026-09-03,Order #1006

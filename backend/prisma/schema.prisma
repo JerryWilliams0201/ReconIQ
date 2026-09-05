@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Transaction {
+  id               String   @id @default(uuid())
+  source           String   // 'BANK', 'PG', 'LEDGER'
+  referenceId      String
+  amount           Float
+  currency         String   @default("INR")
+  date             DateTime
+  description      String?
+  reconciliationId String?
+  reconciliation   ReconciliationResult? @relation(fields: [reconciliationId], references: [id])
+}
+
+model ReconciliationResult {
+  id           String   @id @default(uuid())
+  status       String   // 'AUTO_MATCHED', 'LLM_MATCHED', 'UNRESOLVED'
+  category     String   // 'EXACT_MATCH', 'FEE_DEDUCTION', 'PARTIAL_REFUND', etc.
+  confidence   Float    // 0-100
+  reasoning    String?
+  createdAt    DateTime @default(now())
+  
+  transactions Transaction[]
+}

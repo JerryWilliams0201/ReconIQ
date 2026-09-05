@@ -1,0 +1,7 @@
+referenceId,amount,date,description
+TXN-9001,12400,2026-09-01,Payment received
+TXN-9002,3250,2026-09-01,Payment received
+TXN-9003,8940,2026-09-02,Payment received minus fee
+TXN-9004,21000,2026-09-02,Payment received
+TXN-9006,4120,2026-09-03,Payment received
+TXN-9007,67300,2026-09-03,Payment received
